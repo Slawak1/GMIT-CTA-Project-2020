@@ -7,11 +7,11 @@
 from random import randint
 import time
 import numpy as np
+import pandas as pd
+import bubble as bbl
 
 
-def main():
-    pass
-
+pd.options.display.float_format = '{:,.3f}'.format
 
 def generate_array(n):
 
@@ -20,45 +20,35 @@ def generate_array(n):
         array.append(randint(0,100))
     return array
 
-def bubble_sort(arr): 
-
-    start_time = time.time()
-    n = len(arr) 
-
-    # Traverse through all array elements 
-    for i in range(n): 
-
-    # Last i elements are already in place 
-        for j in range(0, n-i-1): 
-
-            # traverse the array from 0 to n-i-1 
-            # Swap if the element found is greater 
-            # than the next element 
-            if arr[j] > arr[j+1] : 
-                arr[j], arr[j+1] = arr[j+1], arr[j] 
-    end_time = time.time()
-    time_elapsed = end_time - start_time
-    return time_elapsed
-
-# def calc_avg(func, input_size):
-#     for i in range(10):
-#         bubble_sort
 
 def main():
 
-    input_size = [250,500,750,1000,1250,2500]
-    output_arr = []
-    for i in input_size:
-        some_list = []
-        for j in range(10):
-            
-            out = bubble_sort(generate_array(i))
-            some_list.append(out)
-            
-        print(some_list, np.mean(some_list))     
-        output_arr.append(np.mean(some_list))
+    input_size = [100,250,500,750,1000,1250]
     
-    print(output_arr)
+    bubble_avg_out = []
+    for i in input_size:
+        input_array = generate_array(i)
+        bubble_out = []
+        for j in range(10):
+            x = bbl.bubble_sort(input_array)
+            x = np.around(x * 1000,3)
+            
+            bubble_out.append(x)
+        bubble_avg_out.append(np.mean(bubble_out))
+
+    
+
+
+
+    print (bubble_avg_out)
+
+    algorithm_df = pd.DataFrame(columns = input_size)
+    algorithm_df.loc['Bubble Sort'] = bubble_avg_out
+    #algorithm_df =  (algorithm_df * 1000).round(3)
+ 
+    print (algorithm_df)        
+
+    
     
 
 main()
