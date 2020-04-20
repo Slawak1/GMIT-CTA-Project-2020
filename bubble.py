@@ -19,7 +19,7 @@ def bubble_sort(arr):
                 time shown in seconds since the epoch - end time of algorithm
             
             time_elapsed: float
-                difference between 
+                difference between end_time and start_time measured in seconds 
 
 
 
