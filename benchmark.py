@@ -87,7 +87,7 @@ def main():
 
 
 
-    algorithm_df = pd.DataFrame(columns = ['Algorithm'] + input_size)
+    algorithm_df = pd.DataFrame(columns = input_size)
     print (type(algorithm_df))
     algorithm_df.loc['Bubble Sort'] = bubble_avg_out
     algorithm_df.loc['Merge Sort'] = merge_avg_out
