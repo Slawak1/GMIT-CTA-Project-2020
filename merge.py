@@ -1,8 +1,8 @@
 
 # code taken from https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-8.php
-from random import randint
+
 import time
-import numpy as np
+
 
 def merge_sort(arr):
 

@@ -1,8 +1,8 @@
 
 # code taken from https://www.geeksforgeeks.org/bubble-sort/
-from random import randint
+
 import time
-import numpy as np
+
 
 def bubble_sort(arr): 
     ''' Method to measure time of Bubble sorting algorithm. 
