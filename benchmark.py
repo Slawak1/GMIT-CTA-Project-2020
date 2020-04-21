@@ -23,12 +23,16 @@ def generate_array(n):
             n: int
                 Is a number of items in array / length 
 
-            array: list
-                Stores generated numbers 
+        Returns:
+        -------
+            list
+                a list of randomly generated numbers from 0 to 99 
+
     '''
     # create empty array
     array = []
 
+    # Loop from 0 to n 
     for i in range (0,n,1):
         array.append(randint(0,100))
     return array
@@ -39,26 +43,11 @@ def main():
 
         Parameters:
         -----------
-            input_size: list
-                !!!
 
-            input_array: list
-                Stores result returned by generate_array() method - which is a list of generated integers 
-
-            bubble_out: list
-                Stores 10 elapsed times returned from Bubble sort algorithm
-
-            bubble_avg_out: list
-                Stores calculated average time for each element from input_size list for Bubble sort algorithm
-
-            bubble_time: float
-                Stores returned value of elapsed time from bubble_sort() method
-             
-            merge_out: list
-                Stores 10 elapsed times returned from Merge sort algorithm,
-
-            merge_avg_out: list
-                Stores calculated average time for each element from input_size list for Merge sort algorithm         
+        Returns:
+        --------
+            Pandas DataFrame
+                Method to return pandas dataframe    
 
             
     '''
@@ -106,6 +95,7 @@ def main():
     # Set 'Size' as an Index 
     algorithm_df.set_index('Size', inplace = True)
     print (algorithm_df.T)
+
     # Return Transposed dataframe for better view
     return algorithm_df.T        
 
