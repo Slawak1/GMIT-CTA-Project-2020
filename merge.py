@@ -1,58 +1,57 @@
 
-# code taken from https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-8.php
 
-import time
-
-
-def merge_sort(arr):
-
-    ''' Method to measure time of Merge sorting algorithm. 
-
-        Parameters:
-        -----------
-            arr: list
-                List of numbers generated randomly by randint(0,100)
-            
-            start_time: float
-                time shown in seconds since the epoch - start time of algorithm
-
-            end_time: float
-                time shown in seconds since the epoch - end time of algorithm
-            
-            time_elapsed: float
-                difference between end_time and start_time measured in seconds 
-
-    '''
-
-
-    start_time = time.time()
-    if len(arr)>1:
-        mid = len(arr)//2
-        lefthalf = arr[:mid]
-        righthalf = arr[mid:]
-
-        merge_sort(lefthalf)
-        merge_sort(righthalf)
-        i=j=k=0       
-        while i < len(lefthalf) and j < len(righthalf):
-            if lefthalf[i] < righthalf[j]:
-                arr[k]=lefthalf[i]
-                i=i+1
-            else:
-                arr[k]=righthalf[j]
-                j=j+1
-            k=k+1
-
-        while i < len(lefthalf):
-            arr[k]=lefthalf[i]
-            i=i+1
-            k=k+1
-
-        while j < len(righthalf):
-            arr[k]=righthalf[j]
-            j=j+1
-            k=k+1
-    end_time = time.time()  
-    time_elapsed = (end_time - start_time)      
-    return time_elapsed
     
+
+# Source: https://stackabuse.com/sorting-algorithms-in-python/
+def merge(left_list, right_list):
+    sorted_list = []
+    left_list_index = right_list_index = 0
+
+    # We use the list lengths often, so its handy to make variables
+    left_list_length, right_list_length = len(left_list), len(right_list)
+
+    for _ in range(left_list_length + right_list_length):
+        if left_list_index < left_list_length and right_list_index < right_list_length:
+            # We check which value from the start of each list is smaller
+            # If the item at the beginning of the left list is smaller, add it
+            # to the sorted list
+            if left_list[left_list_index] <= right_list[right_list_index]:
+                sorted_list.append(left_list[left_list_index])
+                left_list_index += 1
+            # If the item at the beginning of the right list is smaller, add it
+            # to the sorted list
+            else:
+                sorted_list.append(right_list[right_list_index])
+                right_list_index += 1
+
+        # If we've reached the end of the of the left list, add the elementsgit s
+        # from the right list
+        elif left_list_index == left_list_length:
+            sorted_list.append(right_list[right_list_index])
+            right_list_index += 1
+        # If we've reached the end of the of the right list, add the elements
+        # from the left list
+        elif right_list_index == right_list_length:
+            sorted_list.append(left_list[left_list_index])
+            left_list_index += 1
+
+    # final result of the sorting
+    return sorted_list
+
+
+##### Function definition #####
+# Function performing the merge sort; it takes an array to be sorted as an argument
+def merge_sort(array):
+    # If the list is a single element, return it
+    if len(array) <= 1:
+        return array
+
+    # Use floor division to get midpoint, indices must be integers
+    mid = len(array) // 2
+
+    # Sort and merge each half
+    left_list = merge_sort(array[:mid])
+    right_list = merge_sort(array[mid:])
+
+    # Merge the sorted lists into a new one
+    return merge(left_list, right_list)

@@ -1,7 +1,7 @@
 
 # code taken from https://www.geeksforgeeks.org/bubble-sort/
 
-import time
+
 
 
 def bubble_sort(arr): 
@@ -24,7 +24,7 @@ def bubble_sort(arr):
 
 
     '''
-    start_time = time.time()
+    #start_time = time.time()
     
     n = len(arr) 
 
@@ -39,8 +39,8 @@ def bubble_sort(arr):
             # than the next element 
             if arr[j] > arr[j+1] : 
                 arr[j], arr[j+1] = arr[j+1], arr[j] 
-    end_time = time.time()
-    time_elapsed = (end_time - start_time)
+    #end_time = time.time()
+    #time_elapsed = (end_time - start_time)
 
-    return time_elapsed 
+    return arr
 
