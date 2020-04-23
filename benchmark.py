@@ -38,7 +38,7 @@ def generate_array(n):
     return array
 
 def algorithm_time(algorithm,input_array):
-    ''' Method to generate array of random numbers in range from 0 to 100. 
+    ''' Method to benchmarking sorting algorithms. 
 
         Parameters:
         -----------
@@ -67,7 +67,6 @@ def algorithm_time(algorithm,input_array):
         # calculate elapsed time 
         time_elapsed = (end_time - start_time)
     return time_elapsed
-
 
 def main():
     input_size = [200,300,500,750,1000,1250,1500,2500,3750]
@@ -121,7 +120,7 @@ def main():
     
 
     # Return Transposed dataframe for better view
-    return algorithm_df       
+    return algorithm_df.T       
 
 
 print (main())

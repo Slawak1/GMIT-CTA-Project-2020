@@ -1,8 +1,8 @@
 
 
-    
 
 # Source: https://stackabuse.com/sorting-algorithms-in-python/
+
 def merge(left_list, right_list):
     sorted_list = []
     left_list_index = right_list_index = 0

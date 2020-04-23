@@ -5,11 +5,21 @@
 
 
 def counting_sort(array):
+    ''' Method to measure time of Counting sort algorithm. 
 
-
-
+        Parameters:
+        -----------
+            arr: list
+                List of numbers generated randomly by randint(0,100)
+            
+        Returns:
+        --------
+            arr: list
+                returns sorted array
+    '''
+    # get the max value from array
     maxval = max(array)
-    #n = len(array)
+    
     m = maxval + 1
     count = [0] * m               # init with zeros
     for a in array:
