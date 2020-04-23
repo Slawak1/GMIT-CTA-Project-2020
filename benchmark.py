@@ -69,7 +69,7 @@ def algorithm_time(algorithm,input_array):
     return time_elapsed
 
 def main():
-    input_size = [200,300,500,750,1000,1250,1500,2500,3750]
+    input_size = [200,300,500,750,1000,1250,1500]
 
     # arrays to store time results 
     bubble_list = []
@@ -120,11 +120,19 @@ def main():
     
 
     # Return Transposed dataframe for better view
-    return algorithm_df.T       
+    return algorithm_df.T
 
 
-print (main())
+def print_df():
+    print(main())
+    
+
+
+
+
+print_df()
 
     
+
 
 
