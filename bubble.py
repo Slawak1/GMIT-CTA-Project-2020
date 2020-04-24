@@ -24,7 +24,7 @@ def bubble_sort(arr):
     # After each iteration the largest element is placed at the end
         for j in range(0, n-i-1): 
 
-            # Swap if the element arr[j]is greater than arr[j+1]
+            # Swap if the element arr[j] is greater than arr[j+1]
             if arr[j] > arr[j+1] : 
                 arr[j], arr[j+1] = arr[j+1], arr[j] 
     

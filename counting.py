@@ -1,11 +1,8 @@
 # Code taken from https://www.programiz.com/dsa/counting-sort
 
 
-# Counting sort in Python programming
-
-
 def counting_sort(array):
-    ''' Method to measure time of Counting sort algorithm. 
+    ''' Method to measure time of Counting sort algorithm. Sort in-place. 
 
         Parameters:
         -----------
@@ -17,11 +14,11 @@ def counting_sort(array):
             arr: list
                 returns sorted array
     '''
-    # get the max value from array
+    #get the max value from the array
     maxval = max(array)
     
     m = maxval + 1
-    count = [0] * m               # init with zeros
+    count = [0] * m               # set all elements in the count array to 0
     for a in array:
         count[a] += 1             # count occurences
     i = 0
@@ -33,4 +30,6 @@ def counting_sort(array):
 
 
     return array
+
+
 

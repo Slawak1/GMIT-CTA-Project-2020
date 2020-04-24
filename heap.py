@@ -1,9 +1,20 @@
 # https://www.educative.io/edpresso/how-to-implement-heap-sort
 
-import time
 
 
 def heapify(arr, n, i): 
+    ''' Algorithm the array elements are reordered to satisfy the heap property.
+        Parameters:
+        ----------
+            arr: list
+                list of numbers to be sorted
+
+            i: int
+                index
+            
+            n: int
+                heap size
+    '''
     largest = i # set largest as root
     l = 2 * i + 1     # left = 2*i + 1 
     r = 2 * i + 2     # right = 2*i + 2 
@@ -27,7 +38,7 @@ def heapify(arr, n, i):
   
 # function to sort an array of given size 
 def heap_sort(arr): 
-
+    
 
     n = len(arr) 
   

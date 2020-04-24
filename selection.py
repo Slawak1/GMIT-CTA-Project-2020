@@ -1,7 +1,18 @@
 # https://stackabuse.com/sorting-algorithms-in-python/
 
 def selection_sort(arr): 
-  
+    ''' Method to measure time of Selection sort algorithm. 
+
+        Parameters:
+        -----------
+            arr: list
+                List of numbers generated randomly by randint(0,100)
+            
+        Returns:
+        --------
+            arr: list
+                returns sorted array
+    '''
     for i in range(len(arr)):
         # We assume that the first item of the unsorted segment is the smallest
         lowest_value_index = i

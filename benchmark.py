@@ -32,13 +32,16 @@ def generate_array(n):
     # create empty array
     array = []
 
-    # Loop from 0 to n 
+    # Loop from 0 to n, step = 1
     for i in range (0,n,1):
+
+        # append generated to list 
         array.append(randint(0,100))
     return array
 
 def algorithm_time(algorithm,input_array):
-    ''' Method to benchmarking sorting algorithms. 
+    ''' Method to benchmarking sorting algorithms.
+         
 
         Parameters:
         -----------
@@ -51,43 +54,57 @@ def algorithm_time(algorithm,input_array):
         Returns:
         -------
             elapsed_time: int
-                Measured in seconds
+                Time of running algorithm - Measured in seconds
     '''
-
-    for i in range(10):
-        # starting the clock
-        start_time = time.time()
-        
-        # sorting algorithm 
-        algorithm(input_array)
-        
-        # stop the clock
-        end_time = time.time()
-        
-        # calculate elapsed time 
-        time_elapsed = (end_time - start_time)
+   
+    # starting the clock
+    start_time = time.time()
+    
+    # sorting algorithm 
+    algorithm(input_array)
+    
+    # stop the clock
+    end_time = time.time()
+    
+    # calculate elapsed time 
+    time_elapsed = (end_time - start_time)
     return time_elapsed
 
 def main():
-    input_size = [200,300,500,750,1000,1250,1500]
+    '''Method is a driver to perform all necessary operations and calculations.
 
-    # arrays to store time results 
+
+        Returns:
+        --------
+        algorithm_df: Pandas DataFrame
+            method returns pandas dataframe to display results in a nice looking table
+
+
+    '''
+    # each item in input_size list is a number of generated integers by generate_array() method
+    input_size = [200,300,500,750,1000,1250,1500,2500, 3750]
+
+    # arrays to store average time results 
     bubble_list = []
     counting_list = []
     merge_list = []
     heap_list = []
     selection_list = []
 
+    # loop over input_size method 
     for n in input_size:
+        # each time item taken from input_size list is a parameter of generate_array() method
+
         input_array = generate_array(n)
 
+        # arrays to store temporary running time values (10 values for each n) for each algorithm -  
         temp_bubble_list = []
         temp_counting_list = []
         temp_merge_list = []
         temp_heap_list = []
         temp_selection_list = []
 
-        # start test 10 times and calculate average 
+        # test is carried out 10 times for each n, calls algorithm_time method for each algorithm and result is appended into temporary tables       
         for j in range(10):
             temp_bubble_list.append(algorithm_time(bbl.bubble_sort,input_array))
             temp_counting_list.append(algorithm_time(ctg.counting_sort,input_array))
@@ -95,19 +112,19 @@ def main():
             temp_heap_list.append(algorithm_time(hep.heap_sort,input_array))
             temp_selection_list.append(algorithm_time(sel.selection_sort,input_array))
         
+        # average value is multiplied by 1000 to get milliseconds, rounded to 3 decimal places 
+        # and appended into list separately for each algorithm.  
         bubble_list.append(np.around(np.mean(temp_bubble_list)*1000,3))
         counting_list.append(np.around(np.mean(temp_counting_list)*1000,3))
         merge_list.append(np.around(np.mean(temp_merge_list)*1000,3))
         heap_list.append(np.around(np.mean(temp_heap_list)*1000,3))
         selection_list.append(np.around(np.mean(temp_selection_list)*1000,3))
 
-
-
-    #-------------------------------------------------# 
-    #Create Dataframe 
+    # For purpose of displaying results in a nice looking way dataframe is created
     algorithm_df = pd.DataFrame()
 
-    # Add measuerd times of sorted algorithms to dataframe  
+    # All measuerd running times of sorted algorithms are added to dataframe
+    # also input_size list is added (for indexing)  
     algorithm_df['Size'] = input_size
     algorithm_df['Bubble Sort'] = bubble_list
     algorithm_df['Merge Sort'] = counting_list
@@ -117,19 +134,19 @@ def main():
 
     # Set 'Size' as an Index 
     algorithm_df.set_index('Size', inplace = True)
-    
 
-    # Return Transposed dataframe for better view
-    return algorithm_df.T
+    # Return dataframe
+    return algorithm_df
 
 
 def print_df():
-    print(main())
+    '''Method to display dataframe in console 
+        Data Frame is transposed to get algorithm name as a row 
+        and input_size as a columns
+    '''
+    print(main().T)
     
-
-
-
-
+# Call print_df() method 
 print_df()
 
     
