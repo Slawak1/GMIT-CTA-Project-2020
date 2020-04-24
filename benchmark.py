@@ -145,9 +145,10 @@ def print_df():
         and input_size as a columns
     '''
     print(main().T)
-    
+
+if __name__ == "__main__":    
 # Call print_df() method 
-print_df()
+    print_df()
 
     
 
