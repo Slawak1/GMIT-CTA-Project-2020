@@ -82,7 +82,7 @@ def main():
 
     '''
     # each item in input_size list is a number of generated integers by generate_array() method
-    input_size = [200,300,500,750,1000,1250,1500,2500, 3750]
+    input_size = [200,300,500,750,1000,1250,1500,2500, 3750,4500,6500,10000,15000]
 
     # arrays to store average time results 
     bubble_list = []
