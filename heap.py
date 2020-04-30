@@ -15,7 +15,8 @@ def heapify(arr, n, i):
             n: int
                 heap size
     '''
-    largest = i # set largest as root
+    # set largest as root
+    largest = i 
     l = 2 * i + 1     # left = 2*i + 1 
     r = 2 * i + 2     # right = 2*i + 2 
   

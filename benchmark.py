@@ -82,7 +82,7 @@ def main():
 
     '''
     # each item in input_size list is a number of generated integers by generate_array() method
-    input_size = [200,300,500,750,1000,1250,1500,2500, 3750,4500,6500,10000,15000]
+    input_size = [500,1000,1500,2000,2500,3000,4000,5000,6000,7000,8000,9000,10000 ]
 
     # arrays to store average time results 
     bubble_list = []
@@ -125,7 +125,7 @@ def main():
 
     # All measuerd running times of sorted algorithms are added to dataframe
     # also input_size list is added (for indexing)  
-    algorithm_df['Size'] = input_size
+    algorithm_df['Input Size'] = input_size
     algorithm_df['Bubble Sort'] = bubble_list
     algorithm_df['Merge Sort'] = counting_list
     algorithm_df['Counting Sort'] = merge_list
