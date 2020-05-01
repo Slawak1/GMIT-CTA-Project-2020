@@ -14,6 +14,8 @@ import counting as ctg
 import heap as hep
 import selection as sel
 
+import matplotlib.pyplot as plt 
+
 
 def generate_array(n):
     ''' Method to generate array of random numbers in range from 0 to 100. 
@@ -70,6 +72,7 @@ def algorithm_time(algorithm,input_array):
     time_elapsed = (end_time - start_time)
     return time_elapsed
 
+
 def main():
     '''Method is a driver to perform all necessary operations and calculations.
 
@@ -82,8 +85,9 @@ def main():
 
     '''
     # each item in input_size list is a number of generated integers by generate_array() method
-    input_size = [500,1000,1500,2000,2500,3000,4000,5000,6000,7000,8000,9000,10000 ]
+    input_size = [500,1100,1600,2500,3400,4500,6000,7000,8500,10000 ] # 
 
+    
     # arrays to store average time results 
     bubble_list = []
     counting_list = []
@@ -93,6 +97,7 @@ def main():
 
     # loop over input_size method 
     for n in input_size:
+        
         # each time item taken from input_size list is a parameter of generate_array() method
 
         input_array = generate_array(n)
@@ -106,6 +111,7 @@ def main():
 
         # test is carried out 10 times for each n, calls algorithm_time method for each algorithm and result is appended into temporary tables       
         for j in range(10):
+            
             temp_bubble_list.append(algorithm_time(bbl.bubble_sort,input_array))
             temp_counting_list.append(algorithm_time(ctg.counting_sort,input_array))
             temp_merge_list.append(algorithm_time(mrg.merge_sort,input_array))
@@ -133,18 +139,43 @@ def main():
     algorithm_df['Selection Sort'] = selection_list
 
     # Set 'Size' as an Index 
-    algorithm_df.set_index('Size', inplace = True)
+    algorithm_df.set_index('Input Size', inplace = True)
 
     # Return dataframe
     return algorithm_df
 
 
 def print_df():
-    '''Method to display dataframe in console 
+    '''Method to display dataframe in console and plot graph
         Data Frame is transposed to get algorithm name as a row 
         and input_size as a columns
     '''
-    print(main().T)
+    df = main()
+    print(df.T)
+
+   
+    # Plot graph
+    plt.figure(figsize=(12,8))
+    plt.plot(df.index, df['Bubble Sort'], '-bo', label='Bubble Sort')
+    plt.plot(df.index, df['Merge Sort'], '-ro',label='Merge Sort')
+    plt.plot(df.index, df['Counting Sort'],'-co', label='Counting Sort')
+    plt.plot(df.index, df['Heap Sort'], '-mo',label='Heap Sort')
+    plt.plot(df.index, df['Selection Sort'],'-ko', label='Selection Sort')
+
+    # create variables for x and y ticks 
+    input_size = df.T.columns
+    val_max =  int(df.values.max())
+
+    # Adding labels, legend and ticks
+    plt.title('Sort algorithm comparison graph',fontsize=18)
+    plt.xlabel("Input Size",fontsize=18) 
+    plt.xticks(input_size,fontsize=14)
+    plt.yticks(range(0,val_max+25,250),fontsize=14)
+    plt.ylabel("Time in milliseconds",fontsize=18)
+
+    plt.legend()
+    plt.legend(fontsize=20)
+    plt.show()
 
 if __name__ == "__main__":    
 # Call print_df() method 

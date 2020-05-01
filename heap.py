@@ -3,7 +3,7 @@
 
 
 def heapify(arr, n, i): 
-    ''' Algorithm the array elements are reordered to satisfy the heap property.
+    ''' Method to build a heap.
         Parameters:
         ----------
             arr: list
@@ -37,10 +37,15 @@ def heapify(arr, n, i):
         # Heapify the root. 
         heapify(arr, n, largest) 
   
-# function to sort an array of given size 
+ 
 def heap_sort(arr): 
-    
-
+    ''' Method to sort an array.
+        Parameters:
+        ----------
+            arr: list
+                list of numbers to be sorted
+    '''
+    # get length of a list 
     n = len(arr) 
   
     # Build a heap. 
