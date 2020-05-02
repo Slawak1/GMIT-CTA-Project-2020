@@ -1,4 +1,4 @@
-# https://stackabuse.com/sorting-algorithms-in-python/
+# Code taken from https://stackabuse.com/sorting-algorithms-in-python/
 
 def selection_sort(arr): 
     ''' Method to measure time of Selection sort algorithm. 

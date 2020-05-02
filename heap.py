@@ -1,4 +1,4 @@
-# https://www.educative.io/edpresso/how-to-implement-heap-sort
+# code taken from https://www.educative.io/edpresso/how-to-implement-heap-sort
 
 
 
@@ -20,17 +20,15 @@ def heapify(arr, n, i):
     l = 2 * i + 1     # left = 2*i + 1 
     r = 2 * i + 2     # right = 2*i + 2 
   
-    # See if left child of root exists and is 
-    # greater than root 
+    # Compare left child of root 
     if (l < n and arr[i] < arr[l]): 
         largest = l 
   
-    # See if right child of root exists and is 
-    # greater than root 
+    # Compare left child of root 
     if (r < n and arr[largest] < arr[r]): 
         largest = r 
   
-    # Change root, if needed 
+    # Swap nodes, if needed 
     if (largest != i): 
         arr[i],arr[largest] = arr[largest],arr[i] # swap 
   
