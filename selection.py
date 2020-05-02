@@ -1,12 +1,12 @@
 # Code taken from https://stackabuse.com/sorting-algorithms-in-python/
 
 def selection_sort(arr): 
-    ''' Method to measure time of Selection sort algorithm. 
+    ''' Method to sort array using Selection Sort Algorithm. 
 
         Parameters:
         -----------
             arr: list
-                List of numbers generated randomly by randint(0,100)
+                List of numbers to be sorted
             
         Returns:
         --------

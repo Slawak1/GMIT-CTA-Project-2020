@@ -2,6 +2,22 @@
 # Code taken from https://stackabuse.com/sorting-algorithms-in-python/
 
 def merge(left_list, right_list):
+
+    ''' Method to merge each half that was split, sorting them in the process
+
+        Parameters:
+        -----------
+            left_list: list
+                One of two Lists returned by merge_sort method
+            -------
+            right_list: list
+                Second of two Lists returned by merge_sort method
+            
+        Returns:
+        --------
+            sorted_list: list
+                returns sorted array
+    '''
     sorted_list = []
     left_list_index = right_list_index = 0
 
@@ -38,9 +54,19 @@ def merge(left_list, right_list):
     return sorted_list
 
 
-##### Function definition #####
-# Function performing the merge sort; it takes an array to be sorted as an argument
+
 def merge_sort(array):
+    ''' Method to to divide (sub)arrays into halves and sort them recursively.
+
+        Parameters:
+        -----------
+            arr: list 
+                List of numbers to be sorted
+            
+        Returns:
+        --------
+            calling the merge method with two lists as an arguments
+    '''
     # If the list is a single element, return it
     if len(array) <= 1:
         return array

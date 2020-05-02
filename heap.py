@@ -42,6 +42,11 @@ def heap_sort(arr):
         ----------
             arr: list
                 list of numbers to be sorted
+
+        Returns:
+        --------
+            arr: list
+                returns sorted array
     '''
     # get length of a list 
     n = len(arr) 

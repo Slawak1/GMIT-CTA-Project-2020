@@ -3,12 +3,12 @@
 
 
 def bubble_sort(arr): 
-    ''' Method to measure time of Bubble sorting algorithm. 
+    ''' Method to sort array using Bubble Sort Algorithm.
 
         Parameters:
         -----------
             arr: list
-                List of numbers generated randomly by randint(0,100)
+                List of numbers to be sorted
             
         Returns:
         --------

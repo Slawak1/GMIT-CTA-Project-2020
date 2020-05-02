@@ -2,12 +2,12 @@
 
 
 def counting_sort(array):
-    ''' Method to measure time of Counting sort algorithm. Sort in-place. 
+    ''' Method to sort array using Counting Sort Algorithm.
 
         Parameters:
         -----------
             arr: list
-                List of numbers generated randomly by randint(0,100)
+                List of numbers to be sorted
             
         Returns:
         --------
